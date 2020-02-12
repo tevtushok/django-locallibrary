@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+{% block title %}
+<title>Local Library[Home] </title>
+{% endblock %}
+
+{% block content %}
+<h1>Local Library Home</h1>
+<p> Welcome to <em>Locallibrary</em>, a very basic Django website developed as tutorial example on the Mozzila Developer Network.</p>
+<h2>Dinamic content</h2>
+<p>The library has the following record count:</p>
+<ul>
+    <li><strong>Books:</strong> {{data.num_books }}</li>
+    <li><strong>Copies:</strong> {{data.num_instances}}</li>
+    <li><strong>Copies available:</strong> {{data.num_instances_available}}</li>
+    <li><strong>Authors:</strong> {{data.num_authors}}</li>
+    <li><strong>Book with "world" in titles:</strong> {{data.num_books_title_filter}}</li>
+    <li><strong>Book contains "fiction" in genre:</strong> {{data.num_books_genre_filter}}</li>
+</ul>
+<p> You a have visited this page {{ data.num_visits }} {% if data.num_visits == 1 %} time {% else %} times {% endif %}
+{% endblock %}

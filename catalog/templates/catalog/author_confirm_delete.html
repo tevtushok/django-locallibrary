@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<h1>Delete author</h1>
+<p>Are you sure to delete the author: {{author}}?</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Yes, delete"/>
+    <a class="btn btn-secondary" role="button" href="{{ request.META.HTTP_REFERER }}">Take me back</a>
+</form>
+{% endblock %}

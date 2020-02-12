@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+{% block title %}
+<title>Local Library[{{ author }}]</title>
+{% endblock %}
+{% block content %}
+<h1>Author: {{ author }}</h1>
+<p><strong>First name:</strong> {{ author.first_name }}
+<p><strong>Last name:</strong> {{ author.last_name }}
+<p>
+    <strong>Date of birth:</strong>
+    {% if author.date_of_birth is None %} &mdash;
+    {% else %} {{ author.date_of_birth }}
+    {% endif %}
+</p>
+<p>
+    <strong>Date of death:</strong>
+    {% if author.date_of_death is None %} &mdash;
+    {% else %} {{ author.date_of_death}}
+    {% endif %}
+
+{% if perms.catalog.change_author %}
+<p>
+<a href="{% url 'author_update' author.pk %}" class="btn btn-primary" role="button">update</a>
+{% endif %}
+{% if perms.catalog.delete_author %}
+<a href="{% url 'author_delete' author.pk %}" class="btn btn-warning" role="button">delete</a>
+{% endif %}
+</p>
+<div class="author_detail_books">
+    {% if book_list %}
+        <h2>Books:</h2>
+        {% for book in book_list %}
+        <p><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></p>
+        {% endfor %}
+    {% else %}
+        <h2>{{ author }} doesn't have any books in library</h2>
+    {% endif %}
+</div>
+{% endblock %}

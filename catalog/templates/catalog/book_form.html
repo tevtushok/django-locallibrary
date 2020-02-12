@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<form action="" method="POST">
+    {{ form.non_field_errors }}
+    {% csrf_token %}
+    <div class="form-group row">
+        {{ form.title.errors }}
+        {{ form.title.label_tag }}
+        {{ form.title}}
+    </div>
+    <div class="form-group row">
+        {{ form.author.errors }}
+        {{ form.author.label_tag }}
+        {{ form.author}}
+    </div>
+    <div class="form-group row">
+        {{ form.summary.errors }}
+        {{ form.summary.label_tag }}
+        {{ form.summary}}
+    </div>
+    <div class="form-group row">
+        {{ form.isbn.errors }}
+        {{ form.isbn.label_tag }}
+        {{ form.isbn}}
+    </div>
+    <div class="form-group row">
+        {{ form.genre.errors }}
+        {{ form.genre.label_tag }}
+        {{ form.genre}}
+    </div>
+    <div class="form-group row">
+        {{ form.language.errors }}
+        {{ form.language.label_tag }}
+        {{ form.language}}
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit"/>
+</form>
+{% endblock %}
+

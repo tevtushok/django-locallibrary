@@ -1,0 +1,20 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.book_detail_copies {
+    margin: 20px 0 0 20px;
+}
+.author_detail_books {
+    margin: 20px 0 0 20px;
+}
+
+.author_form li input,
+.author_form li textarea,
+.author_form li span,
+.author_form li select,
+.author_form li lable {
+   display: flex; 
+}
